@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Solar System Simulation</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            font-family: Arial, sans-serif;
+        }
+        canvas {
+            display: block;
+        }
+        #control-panel {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            width: 300px;
+            z-index: 1000;
+        }
+        .planet-control {
+            margin-bottom: 15px;
+        }
+        .planet-control label {
+            display: block;
+            margin-bottom: 5px;
+            color: #fff;
+        }
+        .planet-control input {
+            width: 100%;
+            margin-bottom: 5px;
+        }
+        .speed-value {
+            color: #4CAF50;
+            font-size: 0.9em;
+        }
+        .control-buttons {
+            margin-top: 20px;
+            display: flex;
+            gap: 10px;
+        }
+        button {
+            padding: 8px 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: opacity 0.3s;
+        }
+        button:hover {
+            opacity: 0.8;
+        }
+        #pause-resume {
+            background: #4CAF50;
+            color: white;
+        }
+        #theme-toggle {
+            background: #2196F3;
+            color: white;
+        }
+        .tooltip {
+            position: absolute;
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 8px 12px;
+            border-radius: 5px;
+            font-size: 14px;
+            pointer-events: none;
+            display: none;
+            z-index: 1001;
+        }
+        #info-panel {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            max-width: 300px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div id="control-panel">
+        <h2>Solar System Controls</h2>
+        <div id="planet-controls"></div>
+        <div class="control-buttons">
+            <button id="pause-resume">Pause</button>
+            <button id="theme-toggle">Toggle Theme</button>
+        </div>
+    </div>
+    <div class="tooltip"></div>
+    <div id="info-panel">
+        <h3>Controls:</h3>
+        <p>• Left-click + drag: Rotate view</p>
+        <p>• Right-click + drag: Pan</p>
+        <p>• Scroll: Zoom in/out</p>
+        <p>• Hover over planets for names</p>
+    </div>
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+                "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+            }
+        }
+    </script>
+    <script type="module" src="main.js"></script>
+</body>
+</html> 
